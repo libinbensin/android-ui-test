@@ -60,22 +60,18 @@ public class DeeplinkTest {
 
     @Test
     public void testDeeplinkURL() throws UiObjectNotFoundException {
-        UiObject2 object = mDevice.findObject(By.desc("Libin Salal, June 26, You: https://www.do"));
-//        UiObject2 object = mDevice.findObject(By.desc("Dominos Test"));
+        UiObject2 object = mDevice.findObject(By.desc("Deeplink Test"));
         object.click();
 
-        String url = "https://www.dominos.com/en/pages/order/?utm_source=MixMatch&utm_medium=EMAIL&utm_campaign=NAT&utm_agy=HS2&utm_content=160605,HS2_MxMtch,LOYSB-5,9193,1116534&clearOrder=1&couponCode=SB10MM-KKHK3FDFZ7&offercode=9193&treatment=LOYSB-5&segment=&storenumber=7207&fcode=F4747&headline=Nat_Redesign_v3#/locations/search/";
-//        String url = "http://links.dominos.com/u.d?K4Gty1rPUOyqxbcl4d1hx=3311&utm_2source=MixMatch&utm_2medium=EMAIL&utm_2campaign=NAT&utm_2agy=HS2&utm_2content=160605_3HS2_2MxMtch_3LOYSB-5_39193_31116534&clearOrder=1&couponCode=SB10MM-KKHK3FDFZ7&offercode=9193&treatment=LOYSB-5&segment=&storenumber=7207&fcode=F4747&headline=Nat_2Redesign_2v3";
+        String url = "https://www.google.com/";
 
         UiScrollable listView = new UiScrollable(new UiSelector());
         UiObject listViewItem = listView.getChildByText(new UiSelector()
                 .className(android.widget.TextView.class.getName()), url);
         listViewItem.click();
 
-        // verify if domino's app started and validate that coupon popup shown
-
         // Wait for the app to appear
-        mDevice.wait(Until.hasObject(By.pkg("com.dominospizza").depth(0)),
+        mDevice.wait(Until.hasObject(By.pkg("com.google.chrome").depth(0)),
                 10000);
 
     }
